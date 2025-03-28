@@ -9,8 +9,63 @@
   link: https://gemini.google.com/app
   description: Google 旗下 AI 聊天对话工具
   image: /images/tools/gemini.svg
+
+- name: Deepseek
+  link: https://chat.deepseek.com
+  description: deepseek 旗下 AI 聊天对话工具
+  image: /images/tools/deepseek.svg
+
+- category: 我的服务
+
+- name: 状态总览
+  link: https://uptime.zhou12203.top
+  description: 最喜欢伊蕾娜了
+  image: https://img.zhou12203.top/1740851879657_0.png
+
+- name: CF图床
+  link: https://image.zhou12203.top/
+  description: gemini反代语音对话
+  image: /images/tools/chatgpt.svg
+
+- name: gemini
+  link: https://chat.openai.com/
+  description: gemini反代语音对话
+  image: /images/tools/chatgpt.svg
+
+- name: 评论区
+  link: https://comment.zhou12203.icu/area/533
+  description: 评论页面
+  image: /images/tools/chatgpt.svg
+
+- name: 域名邮箱
+  link: https://mail.zhou12203.top/
+  description: 域名邮箱
+  image: /images/tools/chatgpt.svg
+
+- name: BPB面板
+  link: https://bpb.zhou12203.icu/panel
+  description: BPB面板
+  image: /images/tools/chatgpt.svg
+
+- name: Picx图床
+  link: https://picx.xpoet.cn/
+  description: Picx图床
+  image: /images/tools/chatgpt.svg
+
   
-- category: xxx
-- ......  
-- ......  
-- ......
+- category: 我的博客
+
+- name: 满心欢喜
+  link: https://zhou12203.top/
+  description: 最喜欢伊蕾娜了
+  image: https://img.zhou12203.top/1740851879657_0.png
+
+- name: 手痒难耐
+  link: https://blog.zhou12203.top/
+  description: 来到了知识的荒漠
+  image: https://img.zhou12203.top/1740851879657_0.png
+
+- name: 脑袋尖尖
+  link: http://zhou.ct.ws/
+  description: 芝士与你分享
+  image: https://img.zhou12203.top/1740851879657_0.png

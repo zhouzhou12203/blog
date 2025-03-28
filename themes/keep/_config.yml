@@ -12,19 +12,19 @@ base_info:
   primary_color: "#0066cc"
 
   # Blog website title
-  title: Keep Theme
+  title: zhou
 
   # Blog website author name
-  author: Keep Team
+  author: zhouzhou
 
   # Author avatar, You can use local image path or image link
-  avatar: /images/avatar.svg
+  avatar: https://img.zhou12203.top/1740851879657_0.png
 
   # Website LOGO, You can use local image path or image link
-  logo: /images/logo.svg
+  logo: https://img.zhou12203.top/1740851879657_0.png
 
   # Website favicon, You can use local image path or image link
-  favicon: /images/logo.svg
+  favicon: https://img.zhou12203.top/1740851879657_0.png
 
 
 # ---------------------------------------------------------------------------------------
@@ -34,22 +34,26 @@ base_info:
 # e.g. to enable categories, you need to execute `hexo new page categories`
 # Use `||` to set icon for navigation menu, e.g. `home: / || fa-solid fa-home`
 menu:
-  home: /                       # || fa-solid fa-home
-  archives: /archives           # || fa-solid fa-box-archive
-  # tags: /tags                 # || fa-solid fa-tags
-  # categories: /categories     # || fa-solid fa-layer-group
-  # links: /links               # || fa-solid fa-link
-  # photos: /photos             # || fa-solid fa-image
-  # tools: /tools               # || fa-solid fa-tools
-  # about: /about               # || fa-solid fa-user-graduate
-  # ......
+  home: /                       || fa-solid fa-home
+  archives: /archives           || fa-solid fa-box-archive
+  
+  总结:
+    icon: fa-solid fa-book
+    children:
+      - categories: /categories || fa-solid fa-layer-group
+      - tags: /tags || fa-solid fa-tags
+  tools:  /tools              || fa-solid fa-tools
+  photos: /photos             || fa-solid fa-image
+  about: /about               || fa-solid fa-user-graduate
+  links: /links               || fa-solid fa-link
+  # zhou: https://blog.zhou12203.top
 
 
 # ---------------------------------------------------------------------------------------
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/first_screen.html
 # ---------------------------------------------------------------------------------------
 first_screen:
-  enable: false  # Option values: true | false
+  enable: true  # Option values: true | false
 
   # First screen background image in light mode, You can use local image path or image link
   background_img: /images/bg.svg
@@ -75,15 +79,15 @@ social_contact:
     # If you want to click open the picture, you need to add a prefix `img | `,
     # at the same time change your link to the image link.
     # e.g. `weixin: img | ./images/qrcode.png`
-    github:          # GitHub
-    weixin:          # WeChat
+    github:   https://github.com/zhouzhou12203       # GitHub
+    weixin:   z19121916801      # WeChat
     qq:              # QQ
-    weibo:           # WeiBo
-    zhihu:           # ZhiHu
-    twitter:         # Twitter
-    x:               # X
-    facebook:        # Facebook
-    email:           # Email
+    # weibo:           # WeiBo
+    # zhihu:           # ZhiHu
+    # twitter:         # Twitter
+    # x:               # X
+    # facebook:        # Facebook
+    email:       dorringtonplumpej8951@gmail.com   # Email
 
 
 # ---------------------------------------------------------------------------------------
@@ -94,7 +98,7 @@ scroll:
   progress_bar: false  # Option values: true | false
 
   # Show percent when page scroll
-  percent: false       # Option values: true | false
+  percent: true       # Option values: true | false
 
   # Hide header in top when page scroll
   hide_header: true    # Option values: true | false
@@ -108,10 +112,10 @@ home:
   announcement:
 
   # Show category in home page post block
-  category: false           # Option values: true | false
+  category: true           # Option values: true | false
 
   # Show tags in home page post block
-  tag: false                # Option values: true | false
+  tag: true               # Option values: true | false
 
   # Set the datetime type of home page post block
   post_datetime: updated    # Option values: updated | created
@@ -136,8 +140,8 @@ post:
   # Depend on Hexo Plugin: hexo-wordcount (`npm install hexo-wordcount`)
   # See: https://github.com/willin/hexo-wordcount
   word_count:
-    wordcount: false     # Word count, one post. Option values: true | false
-    min2read: false      # Time to read, one post. Option values: true | false
+    wordcount: true     # Word count, one post. Option values: true | false
+    min2read: true      # Time to read, one post. Option values: true | false
 
   # Post datetime
   datetime_format: "YYYY-MM-DD HH:mm:ss"  # Datetime format. e.g. "YYYY-MM-DD HH:mm:ss"
@@ -146,7 +150,7 @@ post:
   copyright_info: false  # Option values: true | false
 
   # Post share
-  share: false           # Option values: true | false
+  share: true           # Option values: true | false
 
   # Reward author
   reward:
@@ -162,16 +166,16 @@ post:
 code_block:
   # Toolbar include: "code copy", "code block collapse" and "code language"
   tools:
-    enable: false            # Option values: true | false
+    enable: true            # Option values: true | false
     style: default           # Option values: default | mac
-  highlight_theme: default   # Option values: default | obsidian
+  highlight_theme: obsidian   # Option values: default | obsidian
 
 
 # ---------------------------------------------------------------------------------------
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/toc.html
 # ---------------------------------------------------------------------------------------
 toc:
-  enable: false      # Option values: true | false
+  enable: true     # Option values: true | false
 
   # Automatically add list number to toc
   number: false      # Option values: true | false
@@ -193,10 +197,10 @@ website_count:
   # busuanzi
   # See: http://ibruce.info/2015/04/04/busuanzi/
   busuanzi_count:
-    enable: false     # Option values: true | false
-    site_uv: false    # Option values: true | false
-    site_pv: false    # Option values: true | false
-    page_pv: false    # Option values: true | false
+    enable: true    # Option values: true | false
+    site_uv: true    # Option values: true | false
+    site_pv: true    # Option values: true | false
+    page_pv: true    # Option values: true | false
 
 
 # ---------------------------------------------------------------------------------------
@@ -205,7 +209,7 @@ website_count:
 # See: https://github.com/theme-next/hexo-generator-searchdb
 # ---------------------------------------------------------------------------------------
 local_search:
-  enable: false   # Option values: true | false
+  enable: true   # Option values: true | false
   preload: false  # Preload the search data when the page loads. Option values: true | false
 
 
@@ -213,8 +217,8 @@ local_search:
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/comment.html
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false   # Option values: true | false
-  use: valine     # Option values: valine | gitalk | twikoo | waline | giscus | artalk | disqus
+  enable: true   # Option values: true | false
+  use: gitalk     # Option values: valine | gitalk | twikoo | waline | giscus | artalk | disqus
 
   # Valine
   # See: https://github.com/xCss/Valine
@@ -229,11 +233,11 @@ comment:
   # See: https://github.com/gitalk/gitalk
   #      https://gitalk.github.io
   gitalk:
-    github_id:        # GitHub repo owner
+    github_id:      zhouzhou12203  # GitHub repo owner
     github_admins:    # GitHub Admins (in Array type), optional
-    repository:       # Repository name to store issues
-    client_id:        # GitHub Application Client ID
-    client_secret:    # GitHub Application Client Secret
+    repository:     comment  # Repository name to store issues
+    client_id:      Ov23liZ0tS8YM03Kp99g  # GitHub Application Client ID
+    client_secret:  85b6c3e0117cc16663b64dd737477fdd2ae330f0  # GitHub Application Client Secret
     proxy:            # GitHub oauth request reverse proxy for CORS
 
   # Twikoo
@@ -288,7 +292,7 @@ rss:
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/lazyload.html
 # ---------------------------------------------------------------------------------------
 lazyload:
-  enable: false  # Option values: true | false
+  enable: true  # Option values: true | false
 
 
 # ---------------------------------------------------------------------------------------
@@ -310,8 +314,8 @@ pjax:
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/footer.html
 # ---------------------------------------------------------------------------------------
 footer:
-  since: 2020            # The starting year of your website, Can be null
-  word_count: false      # Option values: true | false
+  since: 2025            # The starting year of your website, Can be null
+  word_count: true       # Option values: true | false
 
   site_deploy:
     enable: false        # Option values: true | false
