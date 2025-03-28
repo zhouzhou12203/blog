@@ -236,8 +236,8 @@ comment:
     github_id:      zhouzhou12203  # GitHub repo owner
     github_admins:    # GitHub Admins (in Array type), optional
     repository:     comment  # Repository name to store issues
-    client_id:      Ov23liZ0tS8YM03Kp99g  # GitHub Application Client ID
-    client_secret:  85b6c3e0117cc16663b64dd737477fdd2ae330f0  # GitHub Application Client Secret
+    client_id:      Ov23li40byzWzIywuc0X
+    client_secret:  385dc989cc05d0f71b177a0a2c3e77d726452bb4
     proxy:            # GitHub oauth request reverse proxy for CORS
 
   # Twikoo
