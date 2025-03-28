@@ -234,7 +234,7 @@ comment:
   #      https://gitalk.github.io
   gitalk:
     github_id:      zhouzhou12203  # GitHub repo owner
-    github_admins:    # GitHub Admins (in Array type), optional
+    github_admins:   zhouzhou12203 # GitHub Admins (in Array type), optional
     repository:     comment  # Repository name to store issues
     client_id:      Ov23li40byzWzIywuc0X
     client_secret:  385dc989cc05d0f71b177a0a2c3e77d726452bb4
