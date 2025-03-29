@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/03/27/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo公式渲染</title>
+    <url>/2025/03/29/hexo%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/</url>
+    <content><![CDATA[<p><strong>解决方案：</strong></p>
+<p>我们避免使用 <code>keep</code> 主题的 <code>inject</code> 功能，而是采用以下方式手动集成 KaTeX。</p>
+<p><strong>步骤 1: 安装 <code>hexo-renderer-markdown-it</code> (如果尚未安装)</strong></p>
+   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+<p>如果安装了其他的 markdown 渲染器，需要卸载其他的 markdown 渲染器。</p>
+<p><strong>步骤 2: 修改 <code>themes/keep/layout/_partial/head.ejs</code></strong></p>
+<ol>
+<li>打开 <code>themes/keep/layout/_partial/head.ejs</code> 文件。</li>
+<li>在 <code>&lt;head&gt;</code> 标签的结束位置 <code>&lt;/head&gt;</code> <strong>之前</strong>，添加以下代码块：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (page.katex) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">renderMathInElement</span>(<span class="variable language_">document</span>.<span class="property">body</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">delimiters</span>: [</span></span><br><span class="line"><span class="language-javascript">          &#123;<span class="attr">left</span>: <span class="string">&#x27;$$&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;$$&#x27;</span>, <span class="attr">display</span>: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">          &#123;<span class="attr">left</span>: <span class="string">&#x27;$&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;$&#x27;</span>, <span class="attr">display</span>: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">          &#123;<span class="attr">left</span>: <span class="string">&#x27;\\(&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;\\)&#x27;</span>, <span class="attr">display</span>: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">          &#123;<span class="attr">left</span>: <span class="string">&#x27;\\[&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;\\]&#x27;</span>, <span class="attr">display</span>: <span class="literal">true</span>&#125;</span></span><br><span class="line"><span class="language-javascript">        ]</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 3: 修改 Hexo 根目录下的 <code>_config.yml</code></strong></p>
+<ol>
+<li>确保<strong>没有</strong> <code>mathjax</code> 或 <code>katex</code> 相关的配置。 如果有，注释掉或者删除它们，以避免冲突。</li>
+</ol>
+<p><strong>步骤 4: 在需要渲染公式的文章的 Front-matter 中启用 KaTeX</strong></p>
+<p>在需要显示 KaTeX 公式的所有文章的 Front-matter 中，添加 <code>katex: true</code>。 例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo公式渲染</span></span><br><span class="line"><span class="attr">katex:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2025-03-29 22:20:04</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">网络研究</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p><strong>步骤 5: 在文章中使用 KaTeX 公式</strong></p>
+<p>现在可以在文章中使用 KaTeX 公式了。 使用 <code>$$...$$</code> (显示模式) 或 <code>$...$</code> (行内模式) 包裹公式。 例如：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">This is an inline equation: $E=mc^2$.</span><br><span class="line"></span><br><span class="line">This is a block equation:</span><br><span class="line">$$</span><br><span class="line">\int<span class="emphasis">_&#123;-\infty&#125;^&#123;\infty&#125; e^&#123;-x^2&#125; dx = \sqrt&#123;\pi&#125;</span></span><br><span class="line"><span class="emphasis">$$</span></span><br></pre></td></tr></table></figure>
+<p><strong>步骤 6: 清理并重新生成网站</strong></p>
+   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p><strong>完整配置文件示例:</strong></p>
+<ul>
+<li><strong><code>themes/keep/layout/_partial/head.ejs</code> (片段):</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  &lt;% if (page.katex) &#123; %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">renderMathInElement</span>(<span class="variable language_">document</span>.<span class="property">body</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">delimiters</span>: [</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">left</span>: <span class="string">&#x27;$$&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;$$&#x27;</span>, <span class="attr">display</span>: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">left</span>: <span class="string">&#x27;$&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;$&#x27;</span>, <span class="attr">display</span>: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">left</span>: <span class="string">&#x27;\\(&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;\\)&#x27;</span>, <span class="attr">display</span>: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">left</span>: <span class="string">&#x27;\\[&#x27;</span>, <span class="attr">right</span>: <span class="string">&#x27;\\]&#x27;</span>, <span class="attr">display</span>: <span class="literal">true</span>&#125;</span></span><br><span class="line"><span class="language-javascript">          ]</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>文章 Front-matter (示例):</strong></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo公式渲染</span></span><br><span class="line"><span class="attr">katex:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2025-03-29 22:20:04</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">网络研究</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><strong>Hexo 根目录下的 <code>_config.yml</code>:</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 确保没有 mathjax 或 katex 相关配置</span></span><br><span class="line"><span class="comment"># 如果有，请注释掉或删除</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>总结:</strong></p>
+<p>这种方法通过手动在 <code>head.ejs</code> 中添加 KaTeX 的 CSS 和 JavaScript 链接，以及在文章的 Front-matter 中使用 <code>katex: true</code> 标志来控制 KaTeX 的加载。 这样可以避免与 <code>keep</code> 主题的 <code>inject</code> 功能冲突，并确保 KaTeX 只在需要的页面加载。</p>
+]]></content>
+      <categories>
+        <category>网络研究</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>热量传递</title>
+    <url>/2025/03/29/%E7%83%AD%E9%87%8F%E4%BC%A0%E9%80%92/</url>
+    <content><![CDATA[<h1>热量传递</h1>
+<h2 id="1-热传导">1. 热传导</h2>
+<ul>
+<li>导热基本定律 (傅里叶定律):
+<ul>
+<li>$\Phi = -\lambda A \frac{dT}{dx}$</li>
+<li>$q = -\lambda \frac{dT}{dx}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-热对流">2. 热对流</h2>
+<ul>
+<li>$\Phi = hA\Delta T$</li>
+<li>$q = h(t_w - t_f)$</li>
+<li>对流换热热阻: $R_h = \frac{1}{hA}$</li>
+<li>$q = \frac{\Delta T}{R_h}$</li>
+<li>$r_h = \frac{1}{h}$ (单位热阻)</li>
+</ul>
+<h2 id="3-热辐射">3. 热辐射</h2>
+<ul>
+<li>$\Phi = A\sigma T^4$</li>
+<li>$q = \sigma T^4$</li>
+<li>$\sigma = 5.67 \times 10^{-8} W/(m^2 \cdot K^4)$</li>
+<li>实际物体: $\Phi = \epsilon A \sigma T^4$</li>
+<li>辐射换热量: $\Phi = \epsilon_1 A_1 \sigma (T_1^4 - T_2^4)$  ($A_1 &lt;&lt; A_2$)</li>
+</ul>
+<h2 id="传热过程">传热过程</h2>
+<ul>
+<li>流体 - 固体壁面 - 流体</li>
+<li>稳态下：$\Phi_1 = \Phi_2 = \Phi_3$</li>
+<li>传热系数: $K = \frac{1}{\frac{1}{h_1} + \frac{\delta}{\lambda} + \frac{1}{h_2}} = \frac{1}{r_{h_1} + r_x + r_{h_2}}$</li>
+<li>导热热阻: $R_x = \frac{\delta}{\lambda A}$</li>
+</ul>
+<h2 id="温度场">温度场</h2>
+<ul>
+<li>稳态: $\frac{\partial T}{\partial t} = 0$</li>
+<li>等温面 and 等温线</li>
+<li>非稳态</li>
+<li>温度梯度: $\nabla T = \frac{\partial T}{\partial x}\overrightarrow{i} + \frac{\partial T}{\partial y}\overrightarrow{j} + \frac{\partial T}{\partial z}\overrightarrow{k}$  （指向温度增加方向）
+<ul>
+<li>$\overrightarrow{q} = -\lambda \nabla T$ （传热方向指向温度减小方向）</li>
+</ul>
+</li>
+<li>常温常压下气体热导率: $\lambda = \frac{1}{3}\overline{u} \rho l C_v$ (分子量小的气体导热率大)</li>
+<li>液体导热系数经验公式： $\lambda = A \rho P^3 / M^{\frac{2}{3}}$; $A_0 = const$</li>
+<li>固体: $T \uparrow \rightarrow \lambda \uparrow$ (多孔材料) , $\rho$ 湿度 $\rightarrow \lambda \uparrow$</li>
+</ul>
+<h2 id="三维、非稳态，变物性、有内热源">三维、非稳态，变物性、有内热源</h2>
+<ul>
+<li>直角坐标：$\rho c \frac{\partial T}{\partial t} = \frac{\partial}{\partial x}(\lambda \frac{\partial T}{\partial x}) + \frac{\partial}{\partial y}(\lambda \frac{\partial T}{\partial y}) + \frac{\partial}{\partial z}(\lambda \frac{\partial T}{\partial z}) + \dot{\Phi}$</li>
+<li>热扩散率 (导温系数): $a = \frac{\lambda}{\rho C}$</li>
+<li>$(\lambda = const)$: $\frac{\partial T}{\partial t} = \frac{\lambda}{\rho C} \left( \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} \right) + \frac{\dot{\Phi}}{\rho c}$</li>
+<li>稳态无内热源: $∇^2t = 0 = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2}$</li>
+</ul>
+<h2 id="坐标系">坐标系</h2>
+<ul>
+<li>圆柱坐标: $\rho c \frac{\partial T}{\partial t} = \frac{1}{r} \frac{\partial}{\partial r}(r \lambda \frac{\partial T}{\partial r}) + \frac{1}{r^2} \frac{\partial}{\partial \phi}(\lambda \frac{\partial T}{\partial \phi}) + \frac{\partial}{\partial z}(\lambda \frac{\partial T}{\partial z}) + \dot{\Phi}$<br>
+$q_r = -\lambda \frac{\partial T}{\partial r}$<br>
+$q_{\theta} = -\lambda \frac{1}{r} \frac{\partial T}{\partial \phi}$<br>
+$q_{\phi} = -\lambda \frac{\partial T}{\partial z}$</li>
+<li>球坐标: $\rho c \frac{\partial T}{\partial t} =  \frac{1}{r^2} \frac{\partial}{\partial r}(r^2 \lambda \frac{\partial T}{\partial r}) + \frac{1}{r^2 sin \theta} \frac{\partial}{\partial \theta}(sin \theta \lambda \frac{\partial T}{\partial \theta}) +  \frac{1}{r^2 sin^2 \theta} \frac{\partial}{\partial \phi}(\lambda \frac{\partial T}{\partial \phi}) + \dot{\Phi}$<br>
+$q_r = -\lambda \frac{\partial T}{\partial r}$<br>
+$q_{\theta} = -\lambda \frac{1}{r} \frac{\partial T}{\partial \theta}$<br>
+$q_{\phi} = -\lambda \frac{1}{r sin \theta} \frac{\partial T}{\partial \phi}$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>传热学</tag>
+      </tags>
+  </entry>
+</search>
