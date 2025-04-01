@@ -28,7 +28,7 @@
   image: /images/tools/chatgpt.svg
 
 - name: gemini
-  link: https://chat.openai.com/
+  link: https://12203gemini.deno.dev/
   description: gemini反代语音对话
   image: /images/tools/chatgpt.svg
 
