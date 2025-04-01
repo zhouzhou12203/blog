@@ -42,8 +42,8 @@ menu:
     children:
       - categories: /categories || fa-solid fa-layer-group
       - tags: /tags || fa-solid fa-tags
+      - photos: /photos          || fa-solid fa-image
   tools:  /tools              || fa-solid fa-tools
-  photos: /photos             || fa-solid fa-image
   about: /about               || fa-solid fa-user-graduate
   links: /links               || fa-solid fa-link
   # zhou: https://blog.zhou12203.top
