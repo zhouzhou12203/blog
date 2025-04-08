@@ -57,7 +57,38 @@
   description: Picx图床
   image: /images/tools/chatgpt.svg
 
+- category: 好玩推荐
+
+- name: cloudflare
+  link: https://dash.cloudflare.com/login
+  description: CF大善人无需多言
+  image: 
+
+- name: huggingface
+  link: https://huggingface.co/
+  description: 抱脸
+  image: 
+
+- name: filen
+  link: https://filen.io
+  description: 免费10GB的云盘,可以自行部署web-filen实现WebDAV,邀新双方可获得额外10GB
+  image: 
   
+- name: infini
+  link: https://infini-cloud.net/en/
+  description: 免费20GB的webdav,邀请（双方）获得更多空间
+  image: 
+
+- name: infinityfree
+  link: https://www.infinityfree.com
+  description: 3个免费虚拟主机空间
+  image: 
+
+- name: deno
+  link: https://deno.com
+  description: deno托管平台
+  image: 
+
 - category: 我的博客
 
 - name: 满心欢喜
