@@ -32,6 +32,11 @@
   description: gemini反代语音对话
   image: /images/tools/chatgpt.svg
 
+- name: api proxy
+  link: https://api12203.deno.dev
+  description: api代理
+  image: /images/tools/chatgpt.svg
+
 - name: 评论区
   link: https://comment.zhou12203.icu/area/533
   description: 评论页面
