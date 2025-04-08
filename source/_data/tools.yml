@@ -22,8 +22,8 @@
   description: 最喜欢伊蕾娜了
   image: https://img.zhou12203.top/1740851879657_0.png
 
-- name: gemini转openai
-  link: https://my-openai-gemini-olive-chi.vercel.app
+- name: gemini-open
+  link: https://gemini-openai.zhou12203.top
   description: gemini转openai的api格式
   image: /images/tools/chatgpt.svg
 
