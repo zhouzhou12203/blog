@@ -5,9 +5,7 @@ date: 2025-04-09 21:44:52
 tags: 
     - cloudflare
     - 域名邮箱
-categories:
-    - 网络研究
-    - 学习指南
+categories: 网络研究
 ---
 # 事先准备：
 一个域名:假设是example.com

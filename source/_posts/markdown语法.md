@@ -3,7 +3,7 @@ title: markdown语法
 katex: true
 date: 2025-04-10 16:22:59
 tags: markdown
-categories: 网络研究,学习指南
+categories: 网络研究
 ---
 # Markdown 语法详细指南
 Markdown 是一种轻量级标记语言，设计用于创建格式化文本，同时保持易读性。以下是一份详细的 Markdown 语法指南：
