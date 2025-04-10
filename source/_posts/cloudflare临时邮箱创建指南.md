@@ -2,9 +2,7 @@
 title: cloudflare临时邮箱创建指南
 katex: true
 date: 2025-04-09 21:44:52
-tags: 
-    - cloudflare
-    - 域名邮箱
+tags: cloudflare｜域名邮箱
 categories: 网络研究
 ---
 # 事先准备：
