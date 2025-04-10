@@ -1,6 +1,6 @@
 ---
 title: hexo公式渲染
-katex: true
+mathjax: true
 date: 2025-03-29 22:20:04
 tags: hexo
 categories: 网络研究

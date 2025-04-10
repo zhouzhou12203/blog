@@ -3,7 +3,7 @@ title: {{ title }}
 date: {{ date }}
 tags:
 categories:
-katex: true
+mathjax: true
 home_cover: /images/home-cover-img.png
 home_cover_height: 120
 post_cover: /images/post-cover-img.png

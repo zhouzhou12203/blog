@@ -1,6 +1,6 @@
 ---
 title: git用法
-katex: true
+mathjax: true
 date: 2025-03-31 14:30:46
 tags: git
 categories: 网络研究

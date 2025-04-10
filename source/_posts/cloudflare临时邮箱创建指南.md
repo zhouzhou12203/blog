@@ -1,6 +1,6 @@
 ---
 title: cloudflare临时邮箱创建指南
-katex: true
+mathjax: true
 date: 2025-04-09 21:44:52
 tags: 
     - cloudflare
