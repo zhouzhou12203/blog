@@ -6,7 +6,8 @@ tags: hexo
 categories: 网络研究
 ---
 
-#### 4.10更新：在keep官方文档找到了[相关办法](https://keep-docs.xpoet.cn/writing/mathjax.html)
+#### 4.10更新：
+- 在keep官方文档找到了[相关办法](https://keep-docs.xpoet.cn/writing/mathjax.html)
 
 **解决方案：**
 

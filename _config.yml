@@ -107,3 +107,6 @@ theme: keep
 deploy:
   type: ''
 
+mermaid:
+ enable: true
+ version: 10.5.0
