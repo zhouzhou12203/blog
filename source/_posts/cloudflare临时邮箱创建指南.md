@@ -6,15 +6,22 @@ tags: cloudflare｜域名邮箱
 categories: 网络研究
 ---
 
-###### 写在前面：因为cli和UI部署不方便更新，而且也有点过于繁琐，所以写了如何使用Github Action部署，在部署过程中也是晕倒了很多莫名其妙的报错，最终有了这份成功的经验
+###### 写在前面：因为cli和UI部署不方便更新，而且也有点过于繁琐，所以写了如何使用Github Action部署，在部署过程中也是遇到了很多莫名其妙的报错，最终有了这份成功的经验
+## 功能说明：
+1. 收发件功能
+2. 用户注册
+3. 用户角色（admin,vip,user）
+4. admin,vip可无限发件，user需管理员后台设置
+5. 未启用webhook
+6. 未启用网站访问密码
 <!-- more -->
 
 # 事先准备：
-- 一个域名:假设是example.com，所有代码配置中的example.com替换成你的根域名
+- 一个绑定到cloudflare的域名:假设是example.com，所有代码配置中的example.com替换成你的根域名
 - [cloudflare](https://dash.cloudflare.com)账号
 - [github](https://github.com)账号:可以不使用，但是本文的部署方法是Github Action所以需要
 - [Resend](https://resend.com)网站：白嫖发件服务的,这里需要得到api填入后端变量
-- [官方临时邮箱文档](https://temp-mail-docs.awsl.uk)
+- [官方临时邮箱文档](https://temp-mail-docs.awsl.uk):更多功能及详细设置请访问官方文档
 - [官方项目](https://github.com/dreamhunter2333/cloudflare_temp_email/tree/main)
 - 参考：[【教程】小白也能看懂的自建Cloudflare临时邮箱教程（域名邮箱）](https://linux.do/t/topic/316819)
 
@@ -136,21 +143,27 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_user_passkeys_user_id_passkey_id ON user_p
 #### 3. 创建kv空间
 - 同样在储存和数据库-找到KV
 - 创建新的KV空间，记录名称和ID
-#### 4. [创建前端页面（先部署后端）](#advanced-syntax)
-#### 5. [配置邮件转发（先部署后端）](#advanced)
+#### 4. 创建前端页面
+- [（先部署后端）](#advanced-syntax)
+#### 5. 配置邮件转发
+- [（先部署后端）](#advanced)
 
 # Github操作
-#### 1. fork官方[Github](https://github.com/dreamhunter2333/cloudflare_temp_email/tree/main)项目
+#### 1. fork官方项目
+- [Github官方项目](https://github.com/dreamhunter2333/cloudflare_temp_email/tree/main)
 #### 2. 打开仓库的 Actions 页面，找到 Deploy Backend Production 和 Deploy Frontend，点击 enable workflow 启用 workflow，这里并不是运行！！！
 #### 3. 然后在仓库页面 Settings -> Secrets and variables -> Actions -> Repository secrets, 添加以下 secrets:
 - CLOUDFLARE_ACCOUNT_ID
     - Workers 和 Pages页面右侧复制
 ![image](https://zhouzhou12203.github.io/picx-images-hosting/image.1zig1vd56e.webp)
 - CLOUDFLARE_API_TOKEN
-    - Workers 和 Pages页面创建一个api
+    - Workers 和 Pages页面管理API令牌创建一个api
     - 你的cloudflare api，建议至少要有workers、D1、Pages、KV的权限
 - BACKEND_TOML
     - 把下面的内容进行相应替换
+    - [JWT_SECRET生成器](https://www.librechat.ai/toolkit/creds_generator)
+    - [更多变量设置](https://temp-mail-docs.awsl.uk/zh/guide/worker-vars.html)
+    - [更多附加功能](https://temp-mail-docs.awsl.uk/zh/guide/feature/config-smtp-proxy.html)
 ```bash
 name = "cloudflare_temp_email"
 main = "src/worker.ts"
@@ -176,6 +189,7 @@ compatibility_flags = [ "nodejs_compat" ]
 PREFIX = ""
 # 用于临时邮箱的所有域名, 支持多个域名，你所持有的根域名
 DOMAINS = ["example.com"]
+
 JWT_SECRET = "8ae****************8de2a"
 
 # admin 控制台密码, 不配置则不允许访问控制台
@@ -267,11 +281,16 @@ VITE_IS_TELEGRAM=false
 <div id="advanced-syntax"></div>
 
 # 创建前端页面
-- 进入下列**链接直达**，在如下样式的输入框里输入你的后端地址(back-end.example.com)，之后会生成一个压缩包下载
+- 进入下列**链接直达**，在如下样式的输入框里输入你的完整后端地址(https://back-end.example.com)，之后会生成一个压缩包下载
+- #### [链接直达](https://temp-mail-docs.awsl.uk/zh/guide/ui/pages)
 ![image](https://zhouzhou12203.github.io/picx-images-hosting/image.8l09swbovn.webp)
 - 点击Workers和Pages，选择Pages，选择上传创建，文件选取刚才下载的文件
-- [链接直达](https://temp-mail-docs.awsl.uk/zh/guide/ui/pages)
+
 ![image](https://zhouzhou12203.github.io/picx-images-hosting/image.7sneb5wd9g.webp)
+- #### 在Pages自定义域里添加你的前端域名，比如mail.example.com
+- ### 测试前端页面
+    - 进入你的前端域名，mail.example.com
+    - admin 后台可以点击五次 logo 进入，或者 mail.example.com/admin
 <div id="advanced"></div>
 
 # 配置邮件转发
