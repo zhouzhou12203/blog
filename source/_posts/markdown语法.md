@@ -1,6 +1,6 @@
 ---
 title: markdown语法
-mathjax: true
+katex: true
 date: 2025-04-10 16:22:59
 tags: markdown
 categories: 网络研究

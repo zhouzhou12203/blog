@@ -1,13 +1,12 @@
 ---
 title: hexo公式渲染
-mathjax: true
+katex: true
 date: 2025-03-29 22:20:04
 tags: hexo
 categories: 网络研究
 ---
 
-#### 4.10更新：
-- 在keep官方文档找到了[相关办法](https://keep-docs.xpoet.cn/writing/mathjax.html)
+#### 4.10更新：在keep官方文档找到了[相关办法](https://keep-docs.xpoet.cn/writing/mathjax.html)
 
 **解决方案：**
 
