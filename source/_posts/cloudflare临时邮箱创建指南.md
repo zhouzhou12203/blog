@@ -60,7 +60,7 @@ ADMIN_PASSWORDS = ["your admin password"]
 # 这里给了一个空数组，也就是说没有登录的用户没有可用的域名，如果你想给没有登录的用户使用域名，你可以加上自己的域名[“各自域名”] 它是一个数组也可以多个
 DEFAULT_DOMAINS = [""]
 
-# 是否允许自动回复邮件，官方默认是false，我们也设置为false
+# 是否允许自动回复邮件，不配置则不允许
 ENABLE_AUTO_REPLY = false
 
 # 是否允许用户创建邮件, 不配置则不允许
@@ -86,8 +86,6 @@ ENABLE_WEBHOOK = false
 # 前端地址，用于发送 webhook 的邮件 url
 FRONTEND_URL = https://xxxx.xxx
 
-# 是否允许用户删除邮件，如果你不想用户删除邮件改成false就行
-ENABLE_USER_DELETE_EMAIL = true
 
 # 可以无限发送邮件的角色
 NO_LIMIT_SEND_ROLE = admin,vip
