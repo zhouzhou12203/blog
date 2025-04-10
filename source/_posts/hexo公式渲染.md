@@ -3,7 +3,9 @@ title: hexo公式渲染
 katex: true
 date: 2025-03-29 22:20:04
 tags: hexo
-categories: 网络研究
+categories: 
+    - 网络研究
+    - 学习指南
 ---
 
 **解决方案：**
