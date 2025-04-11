@@ -7,6 +7,8 @@ categories: 网络研究
 ---
 
 ###### 写在前面：因为cli和UI部署不方便更新，而且也有点过于繁琐，所以写了如何使用Github Action部署，在部署过程中也是遇到了很多莫名其妙的报错，最终有了这份成功的经验
+<!-- more -->
+
 ## 功能说明：
 1. 收发件功能
 2. 用户注册
@@ -14,7 +16,7 @@ categories: 网络研究
 4. admin,vip可无限发件，user需管理员后台设置
 5. 未启用webhook
 6. 未启用网站访问密码
-<!-- more -->
+
 
 # 事先准备：
 - 一个绑定到cloudflare的域名:假设是example.com，所有代码配置中的example.com替换成你的根域名
@@ -152,14 +154,14 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_user_passkeys_user_id_passkey_id ON user_p
 #### 1. Fork官方项目
 - [Github官方项目](https://github.com/dreamhunter2333/cloudflare_temp_email/tree/main)
 #### 2. 打开仓库的 Actions 页面，找到 Deploy Backend Production 和 Deploy Frontend，点击 enable workflow 启用 workflow，这里并不是运行！！！
-#### 3. 然后在仓库页面 Settings -> Secrets and variables -> Actions -> Repository secrets, 添加以下 secrets:
-- CLOUDFLARE_ACCOUNT_ID
+#### 3. 然后在仓库页面 Settings -> Secrets and variables -> Actions -> Repository secrets, 添加以下 secrets（变量名和变量）:
+- `CLOUDFLARE_ACCOUNT_ID`
     - Workers 和 Pages页面右侧复制
 ![image](https://zhouzhou12203.github.io/picx-images-hosting/image.1zig1vd56e.webp)
 - CLOUDFLARE_API_TOKEN
     - Workers 和 Pages页面管理API令牌创建一个api
     - 你的cloudflare api，建议至少要有workers、D1、Pages、KV的权限
-- BACKEND_TOML
+- `BACKEND_TOML`
     - 把下面的内容进行相应替换
     - [JWT_SECRET生成器](https://www.librechat.ai/toolkit/creds_generator)
     - [更多变量设置](https://temp-mail-docs.awsl.uk/zh/guide/worker-vars.html)
@@ -260,14 +262,14 @@ id = "78b******************75647"
 # service = "auth-inbox"
 
 ```
-- FRONTEND_ENV
+- `FRONTEND_ENV`
     - 把下面的VITE_API_BASE替换成你的后端域名
 ```bash
 VITE_API_BASE=https://back-end.example.com
 VITE_CF_WEB_ANALY_TOKEN=
 VITE_IS_TELEGRAM=false
 ```
-- FRONTEND_NAME
+- `FRONTEND_NAME`
     - 你在cloudflare创建的前段pages项目名称（不是前端域名！！！）
 - 可选内容（我并没有选用）
     - 略
@@ -287,7 +289,7 @@ VITE_IS_TELEGRAM=false
 - 点击Workers和Pages，选择Pages，选择上传创建，文件选取刚才下载的文件
 
 ![image](https://zhouzhou12203.github.io/picx-images-hosting/image.7sneb5wd9g.webp)
-- #### 在Pages自定义域里添加你的前端域名，比如  mail.example.com
+- #### 在Pages自定义域里添加你的前端域名，比如 `mail.example.com`
 - ### 测试前端页面
     - 进入你的前端域名，mail.example.com
     - admin 后台可以点击五次 logo 进入，或者 mail.example.com/admin
