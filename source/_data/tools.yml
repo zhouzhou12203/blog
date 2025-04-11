@@ -46,6 +46,21 @@
   link: https://comment.zhou12203.icu/area/533
   description: 评论页面
   image: /images/tools/chatgpt.svg
+  
+- name: 远程开机
+  link: https://mi.zhou12203.top:12203
+  description: 仅限校内使用
+  image: /images/tools/chatgpt.svg
+
+- name: paste
+  link: https://paste.zhou12203.top
+  description: 网络剪贴板&&文件分享
+  image: /images/tools/chatgpt.svg
+
+- name: deeplx
+  link: https://deeplx.zhou12203.icu
+  description: 沉浸式翻译接入
+  image: /images/tools/chatgpt.svg
 
 - name: 域名邮箱
   link: https://mail.zhou12203.top/
@@ -55,6 +70,11 @@
 - name: BPB面板
   link: https://bpb.zhou12203.icu/panel
   description: BPB面板
+  image: /images/tools/chatgpt.svg
+
+- name: clewd
+  link: https://zhou12203-clewd.hf.space
+  description: claude逆向项目
   image: /images/tools/chatgpt.svg
 
 - name: Picx图床
@@ -94,6 +114,12 @@
   description: deno托管平台
   image: 
 
+
+- name: vercel
+  link: https://vercel.com
+  description: vercel托管平台
+  image: 
+  
 - category: 我的博客
 
 - name: 满心欢喜
