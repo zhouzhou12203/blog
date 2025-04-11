@@ -289,7 +289,8 @@ VITE_IS_TELEGRAM=false
 - 点击Workers和Pages，选择Pages，选择上传创建，文件选取刚才下载的文件
 
 ![image](https://zhouzhou12203.github.io/picx-images-hosting/image.7sneb5wd9g.webp)
-- #### 在Pages自定义域里添加你的前端域名，比如`mail.example.com`
+- #### 在Pages自定义域里添加你的自定义域名
+    - `mail.example.com`
 - ### 测试前端页面
     - 进入你的前端域名，mail.example.com
     - admin 后台可以点击五次 logo 进入，或者 mail.example.com/admin
